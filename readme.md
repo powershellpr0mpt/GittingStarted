@@ -8,18 +8,19 @@ I've noticed that actually playing with Git and DOING the basics will get you st
 
 ## Tasks explained in this guide
 
-1. Set a required minimal default configuration for git on your local machine
-1. Create a local copy [clone] of a repository to your local machine
-1. View current status of the local copy 
-1. View the remote repositories your local copy is connected to
-1. Make a local change available on the GitHub repository [push]
-1. Make a remote change available on your local copy
-1. Revert a local change
-1. Working with branches
-1. Working with GitHub Issues
-1. Forking a repository
-1. Making a local change available on the original repository [pull request]
-1. Merging pull requests
+1. [Prerequisites](#Prerequisites)
+1. [Set a required minimal default configuration for git on your local machine](#Set-a-required-minimal-default-configuration-for-git-on-your-local-machine)
+1. [Create a local copy [clone] of a repository to your local machine](#Create-a-local-copy-[clone]-of-a-repository-to-your-local-machine)
+1. [View current status of the local copy](#View-current-status-of-the-local-copy)
+1. [View the remote repositories your local copy is connected to](#View-the-remote-repositories-your-local-copy-is-connected-to)
+1. [Make a local change available on the GitHub repository [push]](#Make-a-local-change-available-on-the-GitHub-repository-[push])
+1. [Make a remote change available on your local copy](#Make-a-remote-change-available-on-your-local-copy)
+1. [Revert a local change](#Revert-a-local-change)
+1. [Working with branches](#Working-with-branches)
+1. [Working with GitHub Issues](#Working-with-GitHub-Issues)
+1. [Forking a repository](#Forking-a-repository)
+1. [Making a local change available on the original repository [pull request]](#Making-a-local-change-available-on-the-original-repository-[pull-request])
+1. [Merging pull requests](#Merging-pull-requests)
 
 ## Repeatable excercises to practice
 
