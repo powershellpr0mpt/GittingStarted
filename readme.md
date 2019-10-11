@@ -69,7 +69,7 @@ Any time you make a commit (change), it will add these details so you can track 
 
 ## Create a repository on GitHub
 
-Click the <kbd>+</kbd> icon and select New Repository ![New Repo][GitNewRepo] , or click on the New Repository icon ![New Repo][GitNewRepo1] on your GitHub account page to create a new repository.
+Click on the New Repository icon ![New Repo][GitNewRepo1] on your GitHub account page or click the <kbd>+</kbd> icon and select New Repository ![New Repo][GitNewRepo] to create a new repository.
 
 ## Create a local copy of a repository to your local machine (clone)
 
