@@ -1,4 +1,4 @@
-# ![GitLogo][GitLogo] Working with Git
+# Working with ![Git][GitLogo]
 
 This guide is made to provide a tutorial on how to work with Git using my personal experience and hopefully will help others learn from my mistakes/teachings.
 
@@ -102,7 +102,7 @@ As the description says, you can see if there are changes available for Git to w
 This can tell you if there are changes available which require action, or no changes at all:
 
 ```git
-$ git status
+git status
 
 On branch master
 Your branch is up to date with 'origin/master'.
@@ -113,7 +113,7 @@ nothing to commit, working tree clean
 or perhaps
 
 ```git
-$ git status
+git status
 
 On branch master
 Your branch is up to date with 'origin/master'.
@@ -137,7 +137,8 @@ You will have to tell Git which files you actually want to have in your versioni
 Git will inform you about new files which are not yet staged by using the previously learnt `git status` command:
 
 ```git
-C:\...\Git\GittingStarted>git status
+git status
+
 On branch master
 Your branch is up to date with 'origin/master'.
 
@@ -191,6 +192,16 @@ So "normally" it should look like this:
 
 ```git
 git push origin master
+
+Enumerating objects: 5, done.
+Counting objects: 100% (5/5), done.
+Delta compression using up to 4 threads
+Compressing objects: 100% (2/2), done.
+Writing objects: 100% (3/3), 332 bytes | 166.00 KiB/s, done.
+Total 3 (delta 1), reused 0 (delta 0)
+remote: Resolving deltas: 100% (1/1), completed with 1 local object.
+To https://github.com/powershellpr0mpt/GittingStarted.git
+   246e29d..ae5b3b1  master -> master
 ```
 
 ## Make a remote change available on your local copy (pull)
