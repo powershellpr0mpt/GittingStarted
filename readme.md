@@ -6,37 +6,50 @@ While it can definitely be handy to learn more about the inner workings of Git b
 
 I've noticed that actually playing with Git and DOING the basics will get you started so much quicker and will make the documentation so much easier to grasp.
 
-## Tasks explained in this guide
+## What is Git
 
-1. [Prerequisites](#Prerequisites)
-1. [Set a required minimal default configuration for git on your local machine](#Set-a-required-minimal-default-configuration-for-git-on-your-local-machine)
-1. [Create a local copy [clone] of a repository to your local machine](#Create-a-local-copy-[clone]-of-a-repository-to-your-local-machine)
-1. [View current status of the local copy](#View-current-status-of-the-local-copy)
-1. [View the remote repositories your local copy is connected to](#View-the-remote-repositories-your-local-copy-is-connected-to)
-1. [Make a local change available on the GitHub repository [push]](#Make-a-local-change-available-on-the-GitHub-repository-[push])
-1. [Make a remote change available on your local copy](#Make-a-remote-change-available-on-your-local-copy)
-1. [Revert a local change](#Revert-a-local-change)
-1. [Working with branches](#Working-with-branches)
-1. [Working with GitHub Issues](#Working-with-GitHub-Issues)
-1. [Forking a repository](#Forking-a-repository)
-1. [Making a local change available on the original repository [pull request]](#Making-a-local-change-available-on-the-original-repository-[pull-request])
-1. [Merging pull requests](#Merging-pull-requests)
+For some people, you might know what Git is and just need to get familiar with the actual usage of the product.
 
-## Repeatable excercises to practice
+For people that are completely new to Git, I would suggest reading the [official What is Git documentation][WhatIsGit].
+One snippet from this that really helped me grasp Git a bit better is the following:
 
-* Create repository
-* Clone a repository
-* Make local change available remote
-* Creating a branch
-* Fork a repository
-* Creating a pull request for a repository not owned by you
+> The major difference between Git and any other Version Control Systems (VCS) is the way Git thinks about its data.  
+> Conceptually, most other systems store information as a list of file-based changes.
+> Git doesn’t think of or store its data this way.  
+> Instead, Git thinks of its data more like a series of snapshots of a miniature filesystem.  
+> With Git, every time you commit, or save the state of your project, Git basically takes a picture of what all your files look like at that moment and stores a reference to that snapshot.
+
+So instead of your versioning system being updated every time you Save a file, Git gets updated everytime you commit a change.  
+This means that while working on a file, you might be able to save/change it 20 times, but if you only commit it once, this is the new state (snapshot) of your file.
 
 ---
 
 ## Prerequisites
 
 * A [GitHub][GitHub] account
-* [Git Client][GitClient] installed locally
+* The [Git Client][GitClient] installed locally.  
+A simple **Next** -> **Next** -> **Finish** installation will suffice
+
+---
+
+## Tasks explained in this guide
+
+1. [Set a required minimal default configuration for git on your local machine](#Set-a-required-minimal-default-configuration-for-git-on-your-local-machine)
+1. [Create a repository on GitHub](#Create-a-repository-on-GitHub)
+1. [Make a local change](#Make-a-local-change)
+1. [Revert a local change](#Revert-a-local-change)
+1. [Create a local copy of a repository to your local machine (clone)](#Create-a-local-copy-of-a-repository-to-your-local-machine-(clone))
+1. [View current status of the local copy](#View-current-status-of-the-local-copy)
+1. [View the remote repositories your local copy is connected to](#View-the-remote-repositories-your-local-copy-is-connected-to)
+1. [Make a local change available on the GitHub repository (push)](#Make-a-local-change-available-on-the-GitHub-repository-(push))
+1. [Make a remote change available on your local copy (pull)](#Make-a-remote-change-available-on-your-local-copy-(pull))
+
+### More advanced tasks for if you're comfortable the above tasks
+
+1. [Working with branches](#Working-with-branches)
+1. [Forking a repository (collaborating)](#Forking-a-repository-[collaborating])
+1. [Making a local change available on the original repository (pull request)](#Making-a-local-change-available-on-the-original-repository-[pull-request])
+1. [Merging pull requests](#Merging-pull-requests)
 
 ---
 
@@ -44,18 +57,140 @@ I've noticed that actually playing with Git and DOING the basics will get you st
 
 Once you have the [Git Client][GitClient] installed on your local machine, you need to define a username and email address to which your commits will be attributed to.
 
-You can configure this easily by running the following command either using Git Bash or your favourite commandline application if you have Git added to your PATH. In my case, using PowerShell works just fine.
+You can [configure][GitConfig] this easily by running the following command either using Git Bash or your favourite commandline application if you have Git added to your PATH. In my case, using PowerShell works just fine.
 
 ```git
 git config --global user.email "you@example.com"
 git config --global user.name "your name"
 ```
 
-Any time you make a commit [change], it will add these details so you can track who made changes to your repository.
+Any time you make a commit (change), it will add these details so you can track who made changes to your repository.
 
-### Recommended configuration settings
+## Create a repository on GitHub
 
-#### Git configuration
+
+
+## Create a local copy of a repository to your local machine (clone)
+
+On GitHub, go to the repository you want to work on.
+Click on the `Clone or Download` button to obtain the link to your repository
+
+On the Client, go to a folder in which you want to have the files for this repository.  
+Do note, it will make a subfolder with the name of the repository in there for you, so you don't have to pre-create a subfolder for this.
+Enter the following command:
+
+```git
+git clone <url>
+```
+
+for example
+
+```git
+C:\Git
+git clone https://github.com/powershellpr0mpt/GittingStarted.git
+```
+
+Will create `C:\Git\GittingStarted`, containing the content of the GitHub repository
+
+## View current status of the local copy
+
+As the description says, you can see if there are changes available for Git to work with using the following command:
+
+`git status`
+
+This can tell you if there are changes available which require action, or no changes at all:
+
+```git
+$ git status
+
+On branch master
+Your branch is up to date with 'origin/master'.
+
+nothing to commit, working tree clean
+```
+
+or perhaps
+
+```git
+$ git status
+
+On branch master
+Your branch is up to date with 'origin/master'.
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git checkout -- <file>..." to discard changes in working directory)
+
+        modified:   readme.md
+```
+
+For more details on the command usage and all options visit [here][GitStatus].
+
+## Make a local change
+
+Git will automatically try to track all changes within the local copy directory structure (the *Working directory*).  
+You will have to tell Git which files you actually want to have in your versioning and you need to add them to a so-called *Staging area*.
+
+Git will inform you about new files which are not yet staged by using the previously learnt `git status` command:
+
+```git
+C:\...\Git\GittingStarted>git status
+On branch master
+Your branch is up to date with 'origin/master'.
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git checkout -- <file>..." to discard changes in working directory)
+
+        modified:   readme.md
+
+no changes added to commit (use "git add" and/or "git commit -a")
+```
+
+As the status mentions, you can add the changes to commit by using `git add`, where you either specify exactly which file you want to commit, or you can also specify folders or the entire folder structure by using
+
+```git
+git add .
+```
+
+## Revert a local change
+
+## View the remote repositories your local copy is connected to
+
+```git
+git remote -v
+```
+
+## Make a local change available on the GitHub repository (push)
+
+```git
+git push <remote> <branch>
+```
+
+By default your remote will be called `origin` and your branch will be called `master`.
+So "normally" it should look like this:
+
+```git
+git push origin master
+```
+
+## Make a remote change available on your local copy (pull)
+
+## Working with branches
+
+## Working with GitHub Issues
+
+## Forking a repository [collaborating]
+
+## Making a local change available on the original repository [pull request]
+
+## Merging pull requests
+
+---
+
+## Recommended configuration settings
+
+### Git configuration
 
 For when you start doing more advanced things in Git [branch related work], you might want to add the following configuration to your Git installation:
 
@@ -66,9 +201,9 @@ git config --global alias.lol "log --graph --decorate --pretty=oneline --all --a
 This will allow you to run `git lol` which does the same as running `git log --graph --decorate --pretty=oneline --all --abbrev-commit` .  
 Basically giving you a nice somewhat graphical overview of all your commits, including brances etc. from within your command line experience.
 
-#### PowerShell configuration
+### PowerShell configuration
 
-##### Posh-Git module
+#### Posh-Git module
 
 Seeing that I'm a PowerShell user, that's my command line experience of choice.  
 For me this means I'd love to see the status of my local Git copy.
@@ -96,7 +231,7 @@ You can install this module by running the following command in PowerShell:
 Find-Module -Name Posh-Git -Repository PSGallery | Install-Module
 ```
 
-###### Posh-Git in your PowerShell profile
+##### Posh-Git in your PowerShell profile
 
 Since you'll be wanting to use Git as much as possible [if you're not already, hopefully you will want to after this guide], you might want to have the functionality of the Posh-Git module available whenever you're working in PowerShell.
 
@@ -114,52 +249,17 @@ Import-Module -Name Posh-Git
 
 To see what else you could do in your profile, you might want to see [my example profile here][PowerShell Profile].
 
-## Create a local copy [clone] of a repository to your local machine
-
-On GitHub, go to the repository you want to work on.
-Click on the `Clone or Download` button to obtain the link to your repository
-
-On the Client, go to a folder in which you want to have the files for this repository.  
-Do note, it will make a subfolder with the name of the repository in there for you, so you don't have to pre-create a subfolder for this.
-Enter the following command:
-
-```git
-git clone <url>
-```
-
-for example
-
-```git
-C:\Git
-git clone https://github.com/powershellpr0mpt/GittingStarted.git
-```
-
-Will create `C:\Git\GittingStarted`, containing the content of the GitHub repository
-
-## View current status of the local copy
-
-## View the remote repositories your local copy is connected to
-
-## Make a local change available on the GitHub repository [push]
-
-## Make a remote change available on your local copy
-
-## Revert a local change
-
-## Working with branches
-
-## Working with GitHub Issues
-
-## Forking a repository
-
-## Making a local change available on the original repository [pull request]
-
-## Merging pull requests
-
 [GitDocs]:https://git-scm.com/doc
 [GitMoL]:https://www.manning.com/books/learn-git-in-a-month-of-lunches
-[GitHub]:https://github.com
+[WhatIsGit]:https://git-scm.com/book/en/v2/Getting-Started-What-is-Git%3F
+[GitHub]:https://github.com/join
 [GitClient]:https://git-scm.com/downloads
+[GitConfig]:https://git-scm.com/docs/git-config
+[GitStatus]:https://git-scm.com/docs/git-status
+[GitCommit]:https://git-scm.com/docs/git-commit
+[GitRemote]:https://git-scm.com/docs/git-remote
+[GitPull]:https://git-scm.com/docs/git-pull
+[GitPush]:https://git-scm.com/docs/git-push
 [dahlbyk Twitter]:https://twitter.com/dahlbyk
 [Posh-Git GitHub]:https://github.com/dahlbyk/posh-git
 [PowerShell Profile]:https://gist.github.com/powershellpr0mpt/e03a2809db23c890d58d1a889961cbc9
