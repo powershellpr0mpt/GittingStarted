@@ -10,7 +10,7 @@ I've noticed that actually playing with Git and DOING the basics will get you st
 
 For some people, you might know what Git is and just need to get familiar with the actual usage of the product.
 
-For people that are completely new to Git, I would suggest reading the [official What is Git documentation][WhatIsGit].
+For people that are completely new to Git, I would suggest reading the [official What is Git documentation][WhatIsGit].  
 One snippet from this that really helped me grasp Git a bit better is the following:
 
 > The major difference between Git and any other Version Control Systems (VCS) is the way Git thinks about its data.  
@@ -19,7 +19,8 @@ One snippet from this that really helped me grasp Git a bit better is the follow
 > Instead, Git thinks of its data more like a series of snapshots of a miniature filesystem.  
 > With Git, every time you commit, or save the state of your project, Git basically takes a picture of what all your files look like at that moment and stores a reference to that snapshot.
 
-So instead of your versioning system being updated every time you Save a file, Git gets updated everytime you commit a change.  
+So instead of your versioning system being updated every time you Save a file, Git gets updated everytime you commit a change.
+
 This means that while working on a file, you might be able to save/change it 20 times, but if you only commit it once, this is the new state (snapshot) of your file.
 
 ---
@@ -34,22 +35,22 @@ A simple **Next** -> **Next** -> **Finish** installation will suffice
 
 ## Tasks explained in this guide
 
-1. [Set a required minimal default configuration for git on your local machine](#Set-a-required-minimal-default-configuration-for-git-on-your-local-machine)
-1. [Create a repository on GitHub](#Create-a-repository-on-GitHub)
-1. [Make a local change](#Make-a-local-change)
-1. [Revert a local change](#Revert-a-local-change)
-1. [Create a local copy of a repository to your local machine (clone)](#Create-a-local-copy-of-a-repository-to-your-local-machine-(clone))
-1. [View current status of the local copy](#View-current-status-of-the-local-copy)
-1. [View the remote repositories your local copy is connected to](#View-the-remote-repositories-your-local-copy-is-connected-to)
-1. [Make a local change available on the GitHub repository (push)](#Make-a-local-change-available-on-the-GitHub-repository-(push))
-1. [Make a remote change available on your local copy (pull)](#Make-a-remote-change-available-on-your-local-copy-(pull))
+* [Set a required minimal default configuration for git on your local machine](#Set-a-required-minimal-default-configuration-for-git-on-your-local-machine)
+* [Create a repository on GitHub](#Create-a-repository-on-GitHub)
+* [Make a local change](#Make-a-local-change)
+* [Revert a local change](#Revert-a-local-change)
+* [Create a local copy of a repository to your local machine (clone)](#Create-a-local-copy-of-a-repository-to-your-local-machine-(clone))
+* [View current status of the local copy](#View-current-status-of-the-local-copy)
+* [View the remote repositories your local copy is connected to](#View-the-remote-repositories-your-local-copy-is-connected-to)
+* [Make a local change available on the GitHub repository (push)](#Make-a-local-change-available-on-the-GitHub-repository-(push))
+* [Make a remote change available on your local copy (pull)](#Make-a-remote-change-available-on-your-local-copy-(pull))
 
 ### More advanced tasks for if you're comfortable the above tasks
 
-1. [Working with branches](#Working-with-branches)
-1. [Forking a repository (collaborating)](#Forking-a-repository-[collaborating])
-1. [Making a local change available on the original repository (pull request)](#Making-a-local-change-available-on-the-original-repository-[pull-request])
-1. [Merging pull requests](#Merging-pull-requests)
+* [Working with branches](#Working-with-branches)
+* [Forking a repository (collaborating)](#Forking-a-repository-[collaborating])
+* [Making a local change available on the original repository (pull request)](#Making-a-local-change-available-on-the-original-repository-[pull-request])
+* [Merging pull requests](#Merging-pull-requests)
 
 ---
 
@@ -86,7 +87,7 @@ git clone <url>
 for example
 
 ```git
-C:\Git
+cd C:\Git
 git clone https://github.com/powershellpr0mpt/GittingStarted.git
 ```
 
@@ -129,7 +130,9 @@ For more details on the command usage and all options visit [here][GitStatus].
 ## Make a local change
 
 Git will automatically try to track all changes within the local copy directory structure (the *Working directory*).  
-You will have to tell Git which files you actually want to have in your versioning and you need to add them to a so-called *Staging area*.
+You will have to tell Git which files you actually want to have in your versioning and you need to add them to a so-called *Staging area* before you can commit them to your local repository.
+
+![change areas][CommitWorkflow]
 
 Git will inform you about new files which are not yet staged by using the previously learnt `git status` command:
 
@@ -147,11 +150,27 @@ Changes not staged for commit:
 no changes added to commit (use "git add" and/or "git commit -a")
 ```
 
-As the status mentions, you can add the changes to commit by using `git add`, where you either specify exactly which file you want to commit, or you can also specify folders or the entire folder structure by using
+As the status mentions, you can add the changes to commit by using the `git add` coimmand, where you either specify exactly which file you want to commit (`git add readme.md`), or you can also specify folders or everything (`git add .`).
+
+Using `git status` will then tell you the updated status:
 
 ```git
-git add .
+git add readme.md
+
+git status
+
+On branch master
+Your branch is up to date with 'origin/master'.
+
+Changes to be committed:
+  (use "git reset HEAD <file>..." to unstage)
+
+        modified:   readme.md
 ```
+
+By specifying single files you can also stage changes in separate commits (in case you've been editing multiple files, but a change has a separate 'goal').
+
+Now that you have staged your changes 
 
 ## Revert a local change
 
@@ -256,6 +275,7 @@ To see what else you could do in your profile, you might want to see [my example
 [GitClient]:https://git-scm.com/downloads
 [GitConfig]:https://git-scm.com/docs/git-config
 [GitStatus]:https://git-scm.com/docs/git-status
+[CommitWorkflow]:https://git-scm.com/book/en/v2/images/areas.png
 [GitCommit]:https://git-scm.com/docs/git-commit
 [GitRemote]:https://git-scm.com/docs/git-remote
 [GitPull]:https://git-scm.com/docs/git-pull
@@ -263,3 +283,4 @@ To see what else you could do in your profile, you might want to see [my example
 [dahlbyk Twitter]:https://twitter.com/dahlbyk
 [Posh-Git GitHub]:https://github.com/dahlbyk/posh-git
 [PowerShell Profile]:https://gist.github.com/powershellpr0mpt/e03a2809db23c890d58d1a889961cbc9
+[prompt-def-long]: https://github.com/dahlbyk/posh-git/wiki/images/PromptDefaultLong.png   "~\GitHub\posh-git [master ≡ +0 ~1 -0 | +0 ~1 -0 !]> "
