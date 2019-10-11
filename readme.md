@@ -69,7 +69,7 @@ Any time you make a commit (change), it will add these details so you can track 
 
 ## Create a repository on GitHub
 
-Click the <kbd>+</kbd> icon and select New Repository, or click on the New Repository icon on your GitHub account page to create a new repository.
+Click the <kbd>+</kbd> icon and select New Repository ![New Repo][GitNewRepo] , or click on the New Repository icon ![New Repo][GitNewRepo1] on your GitHub account page to create a new repository.
 
 ## Create a local copy of a repository to your local machine (clone)
 
@@ -314,15 +314,17 @@ Import-Module -Name Posh-Git
 
 To see what else you could do in your profile, you might want to see [my example profile here][PowerShell Profile].
 
-[GitLogo]: https://git-scm.com/images/logo@2x.png
+[GitLogo]: https://github.com/powershellpr0mpt/GittingStarted/blob/master/images/git_logo.png
 [GitDocs]:https://git-scm.com/doc
 [GitMoL]:https://www.manning.com/books/learn-git-in-a-month-of-lunches
 [WhatIsGit]:https://git-scm.com/book/en/v2/Getting-Started-What-is-Git%3F
 [GitHub]:https://github.com/join
 [GitClient]:https://git-scm.com/downloads
 [GitConfig]:https://git-scm.com/docs/git-config
+[GitNewRepo]:https://github.com/powershellpr0mpt/GittingStarted/blob/master/images/github_newrepo.png
+[GitNewRepo1]:https://github.com/powershellpr0mpt/GittingStarted/blob/master/images/github_newrepo1.png
 [GitStatus]:https://git-scm.com/docs/git-status
-[CommitWorkflow]:https://git-scm.com/book/en/v2/images/areas.png
+[CommitWorkflow]:https://github.com/powershellpr0mpt/GittingStarted/blob/master/images/git_commitworkflow.png
 [GitCommit]:https://git-scm.com/docs/git-commit
 [GitRemote]:https://git-scm.com/docs/git-remote
 [GitPull]:https://git-scm.com/docs/git-pull
@@ -330,4 +332,4 @@ To see what else you could do in your profile, you might want to see [my example
 [dahlbyk Twitter]:https://twitter.com/dahlbyk
 [Posh-Git GitHub]:https://github.com/dahlbyk/posh-git
 [PowerShell Profile]:https://gist.github.com/powershellpr0mpt/e03a2809db23c890d58d1a889961cbc9
-[prompt-def-long]: https://github.com/dahlbyk/posh-git/wiki/images/PromptDefaultLong.png   "~\GitHub\posh-git [master ≡ +0 ~1 -0 | +0 ~1 -0 !]> "
+[prompt-def-long]: https://github.com/powershellpr0mpt/GittingStarted/blob/master/images/posh-git.png  "~\GitHub\posh-git [master ≡ +0 ~1 -0 | +0 ~1 -0 !]> "
