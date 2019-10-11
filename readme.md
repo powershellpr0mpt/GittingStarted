@@ -204,7 +204,42 @@ To https://github.com/powershellpr0mpt/GittingStarted.git
    246e29d..ae5b3b1  master -> master
 ```
 
+This works fine unless the remote location has an update you don't yet have locally, in this case you'll see something like this:
+
+```git
+git push origin master
+
+To https://github.com/powershellpr0mpt/GittingStarted.git
+ ! [rejected]        master -> master (non-fast-forward)
+error: failed to push some refs to 'https://github.com/powershellpr0mpt/GittingStarted.git'
+hint: Updates were rejected because the tip of your current branch is behind
+hint: its remote counterpart. Integrate the remote changes (e.g.
+hint: 'git pull ...') before pushing again.
+hint: See the 'Note about fast-forwards' in 'git push --help' for details.
+```
+
+In this case you will first need to retreive the update from the remote location before you can update it.  
+Which leads us to the next section.
+
 ## Make a remote change available on your local copy (pull)
+
+```git
+git push <remote> <branch>
+```
+
+By default your remote will be called `origin` and your branch will be called `master`.
+So "normally" it should look like this:
+
+```git
+git pull origin master
+
+From https://github.com/powershellpr0mpt/GittingStarted
+ * branch            master     -> FETCH_HEAD
+Updating 2342d9c..2413c4b
+Fast-forward
+ readme.md | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+ ```
 
 ## Working with branches
 
