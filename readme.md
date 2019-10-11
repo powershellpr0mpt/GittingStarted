@@ -89,9 +89,18 @@ for example
 ```git
 cd C:\Git
 git clone https://github.com/powershellpr0mpt/GittingStarted.git
+
+Cloning into 'GittingStarted'...
+remote: Enumerating objects: 50, done.
+remote: Counting objects: 100% (50/50), done.
+remote: Compressing objects: 100% (28/28), done.
+remote: Total 50 (delta 12), reused 41 (delta 10), pack-reused 0
+Unpacking objects: 100% (50/50), done.
 ```
 
 Will create `C:\Git\GittingStarted`, containing the content of the GitHub repository
+
+For more details on the command usage and all options visit [here][GitClone].
 
 ## View current status of the local copy
 
@@ -171,7 +180,11 @@ Changes to be committed:
 
 By specifying single files you can also stage changes in separate commits (in case you've been editing multiple files, but a change has a separate 'goal').
 
-Now that you have staged your changes 
+Now that you have staged your changes, you want to commit the changes to your local repository:
+
+```git
+git commit -m "<message with info what happens when you apply the commit>"
+```
 
 ## Revert a local change
 
@@ -323,6 +336,7 @@ To see what else you could do in your profile, you might want to see [my example
 [GitConfig]:https://git-scm.com/docs/git-config
 [GitNewRepo]:https://github.com/powershellpr0mpt/GittingStarted/blob/master/images/github_newrepo.png
 [GitNewRepo1]:https://github.com/powershellpr0mpt/GittingStarted/blob/master/images/github_newrepo1.png
+[GitClone]:https://git-scm.com/docs/git-clone
 [GitStatus]:https://git-scm.com/docs/git-status
 [CommitWorkflow]:https://github.com/powershellpr0mpt/GittingStarted/blob/master/images/git_commitworkflow.png
 [GitCommit]:https://git-scm.com/docs/git-commit
