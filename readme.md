@@ -1,4 +1,4 @@
-# Getting used to working with Git - Real life examples and instructions
+# Getting used to working with Git - Real life examples and instructions ![GitLogo][GitLogo]
 
 This guide is made to provide a tutorial on how to work with Git using my personal experience and hopefully will help others learn from my mistakes/teachings.
 
@@ -268,6 +268,7 @@ Import-Module -Name Posh-Git
 
 To see what else you could do in your profile, you might want to see [my example profile here][PowerShell Profile].
 
+[GitLogo]: https://git-scm.com/images/logo@2x.png
 [GitDocs]:https://git-scm.com/doc
 [GitMoL]:https://www.manning.com/books/learn-git-in-a-month-of-lunches
 [WhatIsGit]:https://git-scm.com/book/en/v2/Getting-Started-What-is-Git%3F
