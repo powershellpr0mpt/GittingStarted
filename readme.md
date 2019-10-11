@@ -1,4 +1,4 @@
-# Getting used to working with Git - Real life examples and instructions ![GitLogo][GitLogo]
+# ![GitLogo][GitLogo] Working with Git
 
 This guide is made to provide a tutorial on how to work with Git using my personal experience and hopefully will help others learn from my mistakes/teachings.
 
