@@ -61,3 +61,11 @@ Delete the new branch from the local machine
 ```git
 git branch -d <newbranch>
 ```
+
+Delete the new branch from the remote branch view
+
+```git
+git branch -a
+git fetch -p
+git branch -a
+```
