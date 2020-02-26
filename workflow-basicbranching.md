@@ -16,7 +16,7 @@ There are of course exceptions to this scenario, but this workflow only describe
 Starting point is a single `master` branch with a single commit.  
 ![Repo1][Repo1]
 
-Create a new branch
+**Create a new branch**
 
 ```git
 git checkout -b <newbranch>
@@ -25,13 +25,13 @@ git checkout -b <newbranch>
 Your local repository will now look like this:  
 ![Repo2][Repo2]  
 
-Add changes to new branch
+**Add changes to new branch**
 
 ```git
 git add .
 ```
 
-Commit changes to new branch
+**Commit changes to new branch**
 
 ```git
 git commit -m "message"
@@ -41,7 +41,7 @@ Your local repository will now look like this:
 ![Repo3][Repo3]  
 However your remote GitHub repository will remain unchanged.
 
-Push new branch and its changes to remote (GitHub)
+**Push new branch and its changes to remote** (GitHub)
 
 ```git
 git push origin <newbranch>
@@ -49,20 +49,20 @@ git push origin <newbranch>
 
 ## On GitHub
 
-Go on GitHub and create a Pull request based on the new branch
+Go on GitHub and **create a Pull request** based on the new branch
 
 `github -> compare & pull request`
 
 `github -> base master -> compare <newbranch> -> create pull request`
 
-Merge the pull request into the `master` branch once the pull request has been approved
+**Merge the pull request** into the `master` branch once the pull request has been approved
 
 `github -> merge pull request`
 
-Your remote GitHub repository will now look like this:
+Your remote GitHub repository will now look like this:  
 ![Repo4][Repo4]  
 
-Delete the new branch from GitHub once the merge has completed
+**Delete the new branch** from GitHub once the merge has completed
 
 `github -> delete <newbranch>`
 
@@ -71,13 +71,13 @@ Delete the new branch from GitHub once the merge has completed
 Your local repository has not yet merged the branches and still looks like  
 ![Repo3][Repo3]
 
-Change working branch to `master`
+**Change working branch** to `master`
 
 ```git
 git checkout master
 ```
 
-Get the changes from GitHub and merge in local `master` branch
+**Get the changes from GitHub and merge** in local `master` branch
 
 ```git
 git pull origin master
@@ -86,13 +86,13 @@ git pull origin master
 ![Repo4][Repo4]  
 Now your local repository is in the desired state and all that's left is some clean-up work!
 
-Delete the new branch from the local machine
+**Delete the new branch** from the local machine
 
 ```git
 git branch -d <newbranch>
 ```
 
-Delete the new branch from the remote branch view
+**Delete the new branch** from the remote branch view
 
 ```git
 git branch -a
