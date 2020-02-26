@@ -37,10 +37,11 @@ A simple **Next** -> **Next** -> **Finish** installation will suffice
 
 * [Set a required minimal default configuration for git on your local machine](#Set-a-required-minimal-default-configuration-for-git-on-your-local-machine)
 * [Create a repository on GitHub](#Create-a-repository-on-GitHub)
-* [Make a local change](#Make-a-local-change)
-* [Revert a local change](#Revert-a-local-change)
 * [Create a local copy of a repository to your local machine (clone)](#Create-a-local-copy-of-a-repository-to-your-local-machine-(clone))
 * [View current status of the local copy](#View-current-status-of-the-local-copy)
+* [Make a local change](#Make-a-local-change)
+* [Revert a local change](#Revert-a-local-change)
+* [Make a remote change](#Make-a-remote-change)
 * [View the remote repositories your local copy is connected to](#View-the-remote-repositories-your-local-copy-is-connected-to)
 * [Make a local change available on the GitHub repository (push)](#Make-a-local-change-available-on-the-GitHub-repository-(push))
 * [Make a remote change available on your local copy (pull)](#Make-a-remote-change-available-on-your-local-copy-(pull))
@@ -51,6 +52,12 @@ A simple **Next** -> **Next** -> **Finish** installation will suffice
 * [Forking a repository (collaborating)](#Forking-a-repository-[collaborating])
 * [Making a local change available on the original repository (pull request)](#Making-a-local-change-available-on-the-original-repository-[pull-request])
 * [Merging pull requests](#Merging-pull-requests)
+
+### Repeatable excercises
+
+* [Start a new project](#Start-a-new-project)
+* [Revert to your original project state](#Revert-to-your-original-project-state)
+* []
 
 ---
 
@@ -69,7 +76,13 @@ Any time you make a commit (change), it will add these details so you can track 
 
 ## Create a repository on GitHub
 
-Click on the New Repository icon ![New Repo][GitNewRepo1] on your GitHub account page or click the <kbd>+</kbd> icon and select New Repository ![New Repo][GitNewRepo] to create a new repository.
+Click on the New Repository icon ![New Repo][GitNewRepo1] on your GitHub account page or click the <kbd>+</kbd> icon in the top-right of the site and select `New Repository` ![New Repo][GitNewRepo]  
+to create a new repository.
+
+Choose a repository name that's representative and select if you want the contents of the repository to be seen publicly or privately only. You can change all of these settings later if needed.
+
+There's no need to add a README file, .gitignore file or even a license for now.  
+Once you get more comfortable with Git, you'll know exactly which you want to add, where and why.
 
 ## Create a local copy of a repository to your local machine (clone)
 
@@ -108,7 +121,8 @@ As the description says, you can see if there are changes available for Git to w
 
 `git status`
 
-This can tell you if there are changes available which require action, or no changes at all:
+As expected, this command will do nothing else but tell you what the current status of your repository is compared to its last commit.  
+IT can tell you if there are changes available which require action, no changes at all or perhaps a mix of staged and unstaged changes (you'll learn more about the types of changes [later](#Make-a-local-change)):
 
 ```git
 git status
@@ -160,7 +174,7 @@ Changes not staged for commit:
 no changes added to commit (use "git add" and/or "git commit -a")
 ```
 
-As the status mentions, you can add the changes to commit by using the `git add` coimmand, where you either specify exactly which file you want to commit (`git add readme.md`), or you can also specify folders or everything (`git add .`).
+As the status mentions, you can add the changes to commit by using the `git add` coimmand, where you either specify exactly which file you want to commit (`git add readme.md`), or you can also specify folders to add or simplt add everything (`git add .`).
 
 Using `git status` will then tell you the updated status:
 
@@ -180,27 +194,70 @@ Changes to be committed:
 
 By specifying single files you can also stage changes in separate commits (in case you've been editing multiple files, but a change has a separate 'goal').
 
+For more details on the command usage and all options visit [here][GitAdd].
+
 Now that you have staged your changes, you want to commit the changes to your local repository:
 
 ```git
 git commit -m "<message with info what happens when you apply the commit>"
 ```
 
+so for example you've updated the readme.md file (the file you're actually reading now), you'll say something like this:
+
+```git
+git commit -m "Add information on how to make a local change with Git"
+```
+
+Once you have commited the change, your repository is "updated" with these changes.  
+Consider it as if you've just created a new snapshot of your repository with the latest changes.
+
+For more details on the command usage and all options visit [here][GitCommit].
+
 ## Revert a local change
+
+## Make a remote change
+
+In this example we're going to generate a remote change through the GitHub webinterface, but a remote change can be innitiated from another device or another user in a similar manner as we will explain
 
 ## View the remote repositories your local copy is connected to
 
+If you followed the steps above correctly and cloned your repository from your GitHub account to your local machine, your repository will always have a "remote link" to the GitHub repository, allowing you to add your changes ([push](#Make-a-local-change-available-on-the-GitHub-repository-(push))) to the remote repository as well as getting changes ([fetch/pull](#Make-a-remote-change-available-on-your-local-copy-(pull))) from the remote repository.
+
+But in order to do this, you need to know how Git has configured them, if at all!  
+This is where the following command comes in handy:
+
 ```git
 git remote -v
+
+origin  https://github.com/powershellpr0mpt/GittingStarted.git (fetch)
+origin  https://github.com/powershellpr0mpt/GittingStarted.git (push)
 ```
+
+This shows you remote connections in the following format:
+
+```git
+<remote name> <remote url> <purpose>
+```
+
+For future use, the most important thing to get from this is the `remote name`, so mostly *origin*.
+
+You can add/remove remote connections as you see fit, thus allowing you to rename them if you want to.
+By default, the remote repository where you cloned data from will be called `origin`.
+
+For more details on the command usage and all options visit [here][GitRemote].
 
 ## Make a local change available on the GitHub repository (push)
 
+So you've made a change, but you want the change to be visible and accessible on GitHub.  
+This means you will need to send (push) your changes to the remote repository.
+
+You can do this by using the following command:
+
 ```git
-git push <remote> <branch>
+git push <remote name> <branch>
 ```
 
-By default your remote will be called `origin` and your branch will be called `master`.
+As we found in [our previous excercise](#View-the-remote-repositories-your-local-copy-is-connected-to), by default your remote will be called `origin` and your branch will be called `master`.
 So "normally" it should look like this:
 
 ```git
@@ -217,7 +274,8 @@ To https://github.com/powershellpr0mpt/GittingStarted.git
    246e29d..ae5b3b1  master -> master
 ```
 
-This works fine unless the remote location has an update you don't yet have locally, in this case you'll see something like this:
+This works fine unless the remote location has an update you don't yet have locally.  
+In this case you'll see something like this:
 
 ```git
 git push origin master
@@ -231,16 +289,20 @@ hint: 'git pull ...') before pushing again.
 hint: See the 'Note about fast-forwards' in 'git push --help' for details.
 ```
 
-In this case you will first need to retreive the update from the remote location before you can update it.  
-Which leads us to the next section.
+If this happens you will first need to retreive the update from the remote location before you can update it.  
+How to do this can be found in the next section.
+
+For more details on the command usage and all options visit [here][GitPush].
 
 ## Make a remote change available on your local copy (pull)
+
+Similar to pushing changes to a remote repository, you can pull changes from a remote repository using the following format:
 
 ```git
 git push <remote> <branch>
 ```
 
-By default your remote will be called `origin` and your branch will be called `master`.
+As we found in [our previous excercise](#View-the-remote-repositories-your-local-copy-is-connected-to), by default your remote will be called `origin` and your branch will be called `master`.
 So "normally" it should look like this:
 
 ```git
@@ -254,9 +316,12 @@ Fast-forward
  1 file changed, 1 insertion(+), 1 deletion(-)
  ```
 
-## Working with branches
+This will update your local repository to have at least the same changes as the remote repository.  
+In case you have more updates locally, this will now allow you to [push](#Make-a-local-change-available-on-the-GitHub-repository-(push)) your most recent changes to the remote repository.
 
-## Working with GitHub Issues
+ For more details on the command usage and all options visit [here][GitPull].
+
+## Working with branches
 
 ## Forking a repository [collaborating]
 
@@ -339,6 +404,7 @@ To see what else you could do in your profile, you might want to see [my example
 [GitClone]:https://git-scm.com/docs/git-clone
 [GitStatus]:https://git-scm.com/docs/git-status
 [CommitWorkflow]:https://github.com/powershellpr0mpt/GittingStarted/blob/master/images/git_commitworkflow.png
+[GitAdd]:https://git-scm.com/docs/git-add
 [GitCommit]:https://git-scm.com/docs/git-commit
 [GitRemote]:https://git-scm.com/docs/git-remote
 [GitPull]:https://git-scm.com/docs/git-pull
