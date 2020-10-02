@@ -215,6 +215,59 @@ For more details on the command usage and all options visit [here][GitCommit].
 
 ## Revert a local change
 
+### Revert before you added and tracked the change
+In case you've made a change to a file in the Working Directory but not yet added the file to the Staging Area, you can easily revert back to the previous version using the `restore` command.
+
+For example if you've made a change to *Hello.html* which you shouldn't have, first check the status of your repo using `git status` as usual:
+
+```git
+$ git status
+# On branch master
+# Changes not staged for commit:
+#   (use "git add <file>..." to update what will be committed)
+#   (use "git restore <file>..." to discard changes in working directory)
+#
+#   modified:   hello.html
+#
+no changes added to commit (use "git add" and/or "git commit -a")
+```
+
+The file is marked as modified, but not yet staged.  
+You can go back to the "previous" state of the file using the `git restore` command (you CAN also use `git checkout -- <file>`, however this has been changed in [GitCL][git v2.23.0] in favour of `git restore`).
+
+```git
+git restore Hello.html
+
+```
+
+For more details on the command usage and all options visit [here][GitRestore].
+
+### Revert after you've added/tracked the change, but not yet committed
+
+In case you've made a change to a file in the Working Directory and you've added the file to the Staging Area, you can revert back to the previous state using the `git restore` command as well, but using different switches.
+
+Again, first check the status of your repo using `git status`:
+
+```git
+git status
+
+On branch master
+Your branch is up to date with 'origin/master'.
+
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+        modified:   Hello.html
+```
+
+The file is marked as tracked in the Staging Area and ready to be committed
+
+```git
+git restore --staged Hello.html
+```
+
+removes the file from the Staging Area, but still marks it as Modified.  
+You can now follow the [RemoveBeforeTrack][instructions under the previous section] to also restore the file to its previous state.
+
 ## Make a remote change
 
 In this example we're going to generate a remote change through the GitHub webinterface, but a remote change can be innitiated from another device or another user in a similar manner as we will explain
@@ -409,6 +462,9 @@ To see what else you could do in your profile, you might want to see [my example
 [GitRemote]:https://git-scm.com/docs/git-remote
 [GitPull]:https://git-scm.com/docs/git-pull
 [GitPush]:https://git-scm.com/docs/git-push
+[GitRestore]:https://git-scm.com/docs/git-restore
+[RemoveBeforeTrack]:(#Revert-before-you-added-and-tracked-the-change)
+[GitCL]: https://github.com/git/git/blob/306ee63a703ad67c54ba1209dc11dd9ea500dc1f/Documentation/RelNotes/2.23.0.txt#L61
 [dahlbyk Twitter]:https://twitter.com/dahlbyk
 [Posh-Git GitHub]:https://github.com/dahlbyk/posh-git
 [PowerShell Profile]:https://gist.github.com/powershellpr0mpt/e03a2809db23c890d58d1a889961cbc9
