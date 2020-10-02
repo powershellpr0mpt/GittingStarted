@@ -266,7 +266,7 @@ git restore --staged Hello.html
 ```
 
 removes the file from the Staging Area, but still marks it as Modified.  
-You can now follow the [RemoveBeforeTrack][instructions under the previous section] to also restore the file to its previous state.
+You can now follow the [instructions under the previous section](#revert-before-you-added-and-tracked-the-change) to also restore the file to its previous state.
 
 ## Make a remote change
 
@@ -463,7 +463,6 @@ To see what else you could do in your profile, you might want to see [my example
 [GitPull]:https://git-scm.com/docs/git-pull
 [GitPush]:https://git-scm.com/docs/git-push
 [GitRestore]:https://git-scm.com/docs/git-restore
-[RemoveBeforeTrack]:(#revert-before-you-added-and-tracked-the-change)
 [GitCL]: https://github.com/git/git/blob/306ee63a703ad67c54ba1209dc11dd9ea500dc1f/Documentation/RelNotes/2.23.0.txt#L61
 [dahlbyk Twitter]:https://twitter.com/dahlbyk
 [Posh-Git GitHub]:https://github.com/dahlbyk/posh-git
