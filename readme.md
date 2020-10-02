@@ -463,7 +463,7 @@ To see what else you could do in your profile, you might want to see [my example
 [GitPull]:https://git-scm.com/docs/git-pull
 [GitPush]:https://git-scm.com/docs/git-push
 [GitRestore]:https://git-scm.com/docs/git-restore
-[RemoveBeforeTrack]:(#Revert-before-you-added-and-tracked-the-change)
+[RemoveBeforeTrack]:(#revert-before-you-added-and-tracked-the-change)
 [GitCL]: https://github.com/git/git/blob/306ee63a703ad67c54ba1209dc11dd9ea500dc1f/Documentation/RelNotes/2.23.0.txt#L61
 [dahlbyk Twitter]:https://twitter.com/dahlbyk
 [Posh-Git GitHub]:https://github.com/dahlbyk/posh-git
