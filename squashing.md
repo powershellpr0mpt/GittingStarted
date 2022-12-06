@@ -108,7 +108,9 @@ In Azure DevOps this can be easily done through the "Complete pull request" wiza
 ### GitHub
 
 In GitHub this can be done by selecting the dropdown option on `Merge pull request` and selecting `Squash and merge` when you're ready to merge your Pull Request.
-
 ![Squash and Merge GitHub](images/squash_github.png)
+
+Simply Click `Squash and merge`, fill in the new commit message and `Confirm squash and merge`.
+![Squash and Merge Github commit](images/squash_github2.png)
 
 If you don't have the option directly available in GitHub, this might be restricted by the repository owner. You can configure the option as described [here](https://docs.github.com/en/repositories/configuring-branches-and-merges-in-your-repository/configuring-pull-request-merges/configuring-commit-squashing-for-pull-requests).
