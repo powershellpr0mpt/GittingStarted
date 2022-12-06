@@ -85,7 +85,7 @@ Because you've re-written history, you can't simply push the current changes to 
 ![Error pushing to repository](images/squash_error_push.png)
 
 You will have to force push your changes to online to update the future using  
-`git push origin <branch> -f`
+`git push origin <branch> -f`  
 ![Force push to repository](images/squash_push.png)
 
 
