@@ -101,7 +101,7 @@ In this situation you want to look at the Squash Merge option.
 
 In Azure DevOps this can be easily done through the "Complete pull request" wizard, [selecting the correct Merge type](https://learn.microsoft.com/en-us/azure/devops/repos/git/merging-with-squash?view=azure-devops#complete-pull-requests-with-squash-merge)
 
-![Complete Merge Azure DevOps](images/squash_devops1.png)
+![Complete Merge Azure DevOps](images/squash_devops1.png)  
 ![Select Merge type Squash commit Azure DevOps](images/squash_devops2.png)
 
 
