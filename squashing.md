@@ -56,7 +56,7 @@ This will start the **rebase** in [**interactive**](https://git-scm.com/docs/git
 
 It will open your favourite editor with a `/.git/rebase-merge/git-rebase-todo` file which you need to manually edit and say what you want to squash (or take other actions on).  
 
-![Example squash todo](images/squash_editor_before.png)
+![Example squash todo](images/squash_example_before.png)
 
 It includes more information on what the options are, but we'll narrow it down to what is needed for the squash: `squash` or `s`.
 
@@ -64,19 +64,29 @@ Leave the commit you want latest on `pick` (take into account that this means th
 
 Set all the commits which you want to squash to `squash`, leave the rest of the commits as they are (`pick`) and save and close the file.
 
+![Example squash changed](images/squash_example_after.png)
 
 It will then open your favourite editor with a `/.git/COMMIT_EDITMSG` file in which you need to define what commit messages you want to include on your latest commit.  
 Do note that you by default it will leave all commit history messages available in your latest commit, but you can edit it here to either include all messages, parts or nothing at all.  
 
-![Example commit message history before](images/squash_message_before.png)
+![Example commit message history before](images/squash_commit_before.png)
 
 The easiest thing to do is to comment everything out that you don't want with a `#` and leave what you want to be the commit message uncommented.
 
-![Example commit message history after](images/squash_message_after.png)
+![Example commit message history after](images/squash_commit_after.png)
 
 Save and close this file and presto chango, git will rebase with your input and history has been rewritten!
 
-![Final squash result](images/squash_after.png)
+![Final squash result](images/squash_git_log_after.png)
+
+
+Because you've re-written history, you can't simply push the current changes to your online git repository, as it will think you are behind (since according to online you're missing certain commits).  
+![Error pushing to repository](images/squash_error_push.png)
+
+You will have to force push your changes to online to update the future using  
+`git push origin <branch> -f`
+![Force push to repository](images/squash_push.png)
+
 
 ## Squashing on a merge into a new branch
 
