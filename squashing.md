@@ -1,4 +1,4 @@
-# Git squashing
+# Git squashing - cleaning up your history
 
 Working with git can create quite the commit history.  
 If you want to clean up some of the history (mostly the `woops, typo` and `another commit` messages that are of no use), you might want to look into squashing your commits.
@@ -10,8 +10,8 @@ You can do this in one of 2 ways:
 
 ## Why would you choose one over another?  
 
-Squashing in your current branch allows you to clean up your current branch without having to merge with another branch.  
-This can also hel if you do want to merge into another branch but you want to clean up your commits before you merge (for example removing all the trivial `fixing a typo` commits).  
+**Squashing in your current branch** allows you to clean up your current branch without having to merge with another branch.
+
 This can change your commit history from this:  
 ![Commit history before squash](images/squash_before.png)
 
@@ -20,7 +20,7 @@ To this:
 ![Commit history after squash](images/squash_after.png)
 
 
-Using the squashing on a merge option, a completely merged branch will look as if it was simply a single commit on the branch you're merging on.  
+When using the **Squashing on a merge option**, a completely merged branch (with potentially dozens of commits) will look as if it was simply a single commit on the branch you're merging on.  
 So for example you want to merge `feature1` onto `main`, the merge will look like a commit on `main`, not actually branching out to/from `feature1`.
 
 ![Squash merge looks like a commit](images/squash_merge_commit.png)
@@ -28,7 +28,7 @@ So for example you want to merge `feature1` onto `main`, the merge will look lik
 ## Squashing in your current branch
 
 Squashing in your current branch can be done through the use of the `git rebase` command.  
-Now don't immediately start ramming your keyboard and executing this, there's some nuance to this, as [rebase](https://git-scm.com/docs/git-rebase) is a rather powerfull (and destructive) command if you use it incorrectly.
+Now **don't immediately start ramming your keyboard** and executing this, there's some nuance to this, as [rebase](https://git-scm.com/docs/git-rebase) is a rather powerfull (and destructive) command if you use it incorrectly.
 
 The rebase command rewrites/deletes history through a new commit and removing previous commits on the way.  
 How to use it is as follows:
@@ -37,18 +37,19 @@ How to use it is as follows:
 
 for example
 
-`git rebase -i HEAD~3`
-
+`git rebase -i HEAD~3`  
 which means HEAD (current location) + 2 commits back (the last 3 commits)
 
-`git rebase -i c2d0fd3`
+or
 
-which means all the commits from now (HEAD) untill **c2d0fd3**.  
+`git rebase -i c2d0fd3`  
+which means all the commits from now (HEAD) untill **c2d0fd3**.
+
 Tip: you can find your commits by using `git log --oneline`
 
 ![git log --oneline](images/squash_git_log.png)
 
-### Example
+### Example of squashing in your current branch
 
 Let's take `git rebase -i c2d0fd3` as an example
 
@@ -62,7 +63,7 @@ It includes more information on what the options are, but we'll narrow it down t
 
 Leave the commit you want latest on `pick` (take into account that this means the files, not the commit message, you can change this later).
 
-Set all the commits which you want to squash to `squash`, leave the rest of the commits as they are (`pick`) and save and close the file.
+Set all the commits which you want to squash to `squash`, leave the rest of the commits as they are (`pick`) and **save and close** the file.
 
 ![Example squash changed](images/squash_example_after.png)
 
@@ -75,7 +76,7 @@ The easiest thing to do is to comment everything out that you don't want with a 
 
 ![Example commit message history after](images/squash_commit_after.png)
 
-Save and close this file and presto chango, git will rebase with your input and history has been rewritten!
+**Save and close** this file and presto chango, git will rebase with your input and history has been rewritten!
 
 ![Final squash result](images/squash_git_log_after.png)
 
